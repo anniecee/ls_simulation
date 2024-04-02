@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <dirent.h>
+#include <sys/types.h>
 #include <string.h>
 #include <stdbool.h>
 #include "LsCommands.h"
-
 
 int main(int argc, char* argv[]) {
 
@@ -55,24 +55,6 @@ int main(int argc, char* argv[]) {
             lsOptions(flag_i, flag_l, directory);
         }
     }
-
-
-    // struct dirent *dp;
-    // DIR *dir = opendir(".");
-
-    // if (dir == NULL) {
-    //     perror("Error opening directory");
-    //     return 1;
-    // }
-
-    // while ((dp = readdir(dir)) != NULL) {
-    //     if (strcmp(dp->d_name, ".") != 0 && strcmp(dp->d_name, "..") != 0) {
-    //         printf("%s  ", dp->d_name);
-    //     }
-    // }
-    // printf("\n");
-
-    // closedir(dir);
 
     return 0;
 }
