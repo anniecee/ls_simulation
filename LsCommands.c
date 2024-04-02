@@ -13,24 +13,38 @@
 #include "LsCommands.h"
 
 void print_file_info(const char *filename, const struct stat *fileStat) {
-    printf((S_ISDIR(fileStat->st_mode))  ? "d" : "-");
-    printf((fileStat->st_mode & S_IRUSR) ? "r" : "-");
-    printf((fileStat->st_mode & S_IWUSR) ? "w" : "-");
-    printf((fileStat->st_mode & S_IXUSR) ? "x" : "-");
-    printf((fileStat->st_mode & S_IRGRP) ? "r" : "-");
-    printf((fileStat->st_mode & S_IWGRP) ? "w" : "-");
-    printf((fileStat->st_mode & S_IXGRP) ? "x" : "-");
-    printf((fileStat->st_mode & S_IROTH) ? "r" : "-");
-    printf((fileStat->st_mode & S_IWOTH) ? "w" : "-");
-    printf((fileStat->st_mode & S_IXOTH) ? "x" : "-");
-    printf(" %2ld", fileStat->st_nlink);
-    printf(" %-8s", getpwuid(fileStat->st_uid)->pw_name);
-    printf(" %-8s", getgrgid(fileStat->st_gid)->gr_name);
-    printf(" %8ld", fileStat->st_size);
+    char permission[12] = "";
     char time_buf[20];
     strftime(time_buf, sizeof(time_buf), "%b %d %Y %H:%M", localtime(&fileStat->st_mtime));
+
+    if (S_ISLNK(fileStat->st_mode)){
+        strcat(permission, "l");
+    }
+    else if (S_ISDIR(fileStat->st_mode)){
+        strcat(permission, "d");
+    }
+    else {
+        strcat(permission, "-");
+    }
+
+    strcat(permission, (fileStat->st_mode & S_IRUSR) ? "r" : "-");
+    strcat(permission, (fileStat->st_mode & S_IWUSR) ? "w" : "-");
+    strcat(permission, (fileStat->st_mode & S_IXUSR) ? "x" : "-");
+    strcat(permission, (fileStat->st_mode & S_IRGRP) ? "r" : "-");
+    strcat(permission, (fileStat->st_mode & S_IWGRP) ? "w" : "-");
+    strcat(permission, (fileStat->st_mode & S_IXGRP) ? "x" : "-");
+    strcat(permission, (fileStat->st_mode & S_IROTH) ? "r" : "-");
+    strcat(permission, (fileStat->st_mode & S_IWOTH) ? "w" : "-");
+    strcat(permission, (fileStat->st_mode & S_IXOTH) ? "x" : "-");
+
+    printf("%s", permission);
+    printf(" %ld", fileStat->st_nlink);
+    printf(" %-s", getpwuid(fileStat->st_uid)->pw_name);
+    printf(" %-s", getgrgid(fileStat->st_gid)->gr_name);
+    printf(" %8ld", fileStat->st_size);
     printf(" %s", time_buf);
     printf(" %s", filename);
+
     if (S_ISLNK(fileStat->st_mode)) {
         char link_buf[256];
         ssize_t len = readlink(filename, link_buf, sizeof(link_buf) - 1);
