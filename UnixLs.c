@@ -10,6 +10,7 @@ int main(int argc, char* argv[]) {
     bool flag_i = false;
     bool flag_l = false;
     bool flag_error = false;
+    int number_of_directory = 0;
 
     char *directory = NULL;
 
@@ -39,26 +40,32 @@ int main(int argc, char* argv[]) {
                     }
                 }
             }
-
             else {
                 directory = input;
+                number_of_directory++;
             }
         }
 
-        // If no directory input, set to current directory
         if (directory == NULL) {
             directory = ".";
         }
 
         // Call ls function
         if (!flag_error) {
-
-            for (int i = 1; i < argc; i++){
-                if (argv[i][0] != '-'){
-                    printf("%s:\n", argv[i]);
-                    lsOptions(flag_i, flag_l, argv[i]);
-                    printf("\n");
-                }  
+            // Print only current directory if user does not enter multiple directories
+            if (number_of_directory < 2){
+                lsOptions(flag_i, flag_l, directory);
+            }
+            else{
+                for (int i = 1; i < argc; i++){
+                    // If no directory input, set to current directory
+                    if (argv[i][0] != '-'){
+                        printf("%s:\n", argv[i]);
+                        lsOptions(flag_i, flag_l, argv[i]);
+                        printf("\n");
+                    
+                    } 
+                }
             }
         }
     }

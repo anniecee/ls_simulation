@@ -1,0 +1,74 @@
+./UnixLs
+LsCommands.h  Makefile  UnixLs.c  LsCommands.c  default_command.txt  UnixLs.o  LsCommands.o  UnixLs  
+
+-------------------------------------------------------------------------------------------------------------
+
+./UnixLs . .. ~
+.:
+LsCommands.h  Makefile  UnixLs.c  LsCommands.c  default_command.txt  UnixLs.o  LsCommands.o  UnixLs  test.txt  
+
+..:
+stalk  test  Virento  process-simulation  ls_simulation  
+
+/home/knn3:
+sfuhome  Android  VirtualBox VMs  Desktop  Downloads  Templates  Public  Documents  Music  Pictures  Videos  assignment-1-knn3  assignment-2-knn3  GitWorkshop  assignment-5-knn3  snap  
+
+-------------------------------------------------------------------------------------------------------------
+
+./UnixLs -i ~/
+/home/knn3/:
+132 sfuhome  111938144 Android  111938147 VirtualBox VMs  2707678269 Desktop  5281740553 Downloads  6539245562 Templates  1024108772 Public  2707678270 Documents  5281979096 Music  6539245564 Pictures  1024108773 Videos  6656050892 assignment-1-knn3  4332164666 assignment-2-knn3  6614985879 GitWorkshop  6711808388 assignment-5-knn3  1091300705 snap  
+
+-------------------------------------------------------------------------------------------------------------
+
+./UnixLs -lililli ~/
+       184 drwx------ 2 knn3 domain users        0 Mar 15 2024 15:09 sfuhome
+1024108765 lrwxrwxrwx 1 knn3 cmpt-csil-users       37 Sep 15 2021 14:25 Android
+1024108767 lrwxrwxrwx 1 knn3 cmpt-csil-users       40 Sep 15 2021 14:25 VirtualBox VMs
+2707678269 drwxr-xr-x 2 knn3 cmpt-csil-users        6 Sep 15 2021 14:25 Desktop
+5281740553 drwxr-xr-x 12 knn3 cmpt-csil-users     4096 Apr 02 2024 17:18 Downloads
+6539245562 drwxr-xr-x 2 knn3 cmpt-csil-users        6 Sep 15 2021 14:25 Templates
+1024108772 drwxr-xr-x 2 knn3 cmpt-csil-users        6 Sep 15 2021 14:25 Public
+2707678270 drwxr-xr-x 7 knn3 cmpt-csil-users      117 Apr 02 2024 14:38 Documents
+5281979096 drwxr-xr-x 2 knn3 cmpt-csil-users        6 Sep 15 2021 14:25 Music
+6539245564 drwxr-xr-x 2 knn3 cmpt-csil-users       61 Mar 25 2024 14:33 Pictures
+1024108773 drwxr-xr-x 2 knn3 cmpt-csil-users        6 Sep 15 2021 14:25 Videos
+6656050892 drwxr-xr-x 7 knn3 cmpt-csil-users     4096 May 26 2022 22:21 assignment-1-knn3
+4332164666 drwxr-xr-x 7 knn3 cmpt-csil-users     4096 Jun 07 2022 17:21 assignment-2-knn3
+6614985879 drwxr-xr-x 3 knn3 cmpt-csil-users       41 Jul 13 2022 18:50 GitWorkshop
+6711808388 drwxr-xr-x 11 knn3 cmpt-csil-users     4096 Jul 26 2022 15:15 assignment-5-knn3
+1091300705 drwx------ 3 knn3 cmpt-csil-users       47 Apr 03 2024 14:24 snap
+
+-------------------------------------------------------------------------------------------------------------
+
+./UnixLs -l
+-rw------- 1 knn3 cmpt-csil-users      261 Apr 02 2024 14:38 LsCommands.h
+-rw------- 1 knn3 cmpt-csil-users      537 Apr 02 2024 14:38 Makefile
+-rw------- 1 knn3 cmpt-csil-users     2026 Apr 03 2024 15:04 UnixLs.c
+-rw------- 1 knn3 cmpt-csil-users     5845 Apr 02 2024 17:24 LsCommands.c
+-rw------- 1 knn3 cmpt-csil-users        0 Apr 02 2024 17:23 test.txt
+-rw------- 1 knn3 cmpt-csil-users     1218 Apr 03 2024 14:33 sample_output.txt
+-rw------- 1 knn3 cmpt-csil-users    18312 Apr 03 2024 14:33 LsCommands.o
+-rw------- 1 knn3 cmpt-csil-users     5976 Apr 03 2024 15:02 UnixLs.o
+-rwx------ 1 knn3 cmpt-csil-users    27832 Apr 03 2024 15:02 UnixLs
+
+-------------------------------------------------------------------------------------------------------------
+
+./UnixLs -l ~/Documents .
+/home/knn3/Documents:
+drwx--S--- 3 knn3 cmpt-csil-users      139 Feb 12 2024 16:12 stalk
+drwx--S--- 3 knn3 cmpt-csil-users       48 Feb 23 2024 17:48 test
+drwx--S--- 4 knn3 cmpt-csil-users      203 Mar 24 2024 18:30 process-simulation
+drwx--S--- 3 knn3 cmpt-csil-users      225 Apr 03 2024 15:02 ls_simulation
+
+.:
+-rw------- 1 knn3 cmpt-csil-users      261 Apr 02 2024 14:38 LsCommands.h
+-rw------- 1 knn3 cmpt-csil-users      537 Apr 02 2024 14:38 Makefile
+-rw------- 1 knn3 cmpt-csil-users     2026 Apr 03 2024 15:04 UnixLs.c
+-rw------- 1 knn3 cmpt-csil-users     5845 Apr 02 2024 17:24 LsCommands.c
+-rw------- 1 knn3 cmpt-csil-users       47 Apr 03 2024 15:06 test.txt
+-rw------- 1 knn3 cmpt-csil-users     2020 Apr 03 2024 15:06 sample_output.txt
+-rw------- 1 knn3 cmpt-csil-users    18312 Apr 03 2024 14:33 LsCommands.o
+-rw------- 1 knn3 cmpt-csil-users     5976 Apr 03 2024 15:02 UnixLs.o
+-rwx------ 1 knn3 cmpt-csil-users    27832 Apr 03 2024 15:02 UnixLs
+
