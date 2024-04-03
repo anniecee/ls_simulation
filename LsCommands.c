@@ -10,7 +10,7 @@
 #include <pwd.h>
 
 #include "LsCommands.h"
-
+///////////////////////// HELPER FUNCTION /////////////////////////
 void print_file_info(const char *filename, const struct stat *fileStat) {
     char permission[12] = "";
 
@@ -68,6 +68,7 @@ void print_file_info(const char *filename, const struct stat *fileStat) {
 }
 
 
+///////////////////////// FUNCTIONS FOR CHOSEN OPTIONS /////////////////////////
 int lsOptions(bool flag_i, bool flag_l, char *directory) {
     if (flag_i && flag_l) {
         ilOption(directory);
@@ -93,9 +94,9 @@ int lsDefault(char *directory) {
         return 1;
     }
 
-    // Print file name, omit "." and ".."
+    // Print file name, omit "." and ".." and hidden files
     while ((dp = readdir(dir)) != NULL) {
-        if (strcmp(dp->d_name, ".") != 0 && strcmp(dp->d_name, "..") != 0) {
+        if (strcmp(dp->d_name, ".") != 0 && strcmp(dp->d_name, "..") != 0 && dp->d_name[0] != '.') {
             printf("%s  ", dp->d_name);
         }
     }
